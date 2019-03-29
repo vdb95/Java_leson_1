@@ -1,0 +1,61 @@
+/*
+*dated Mar 29,2019
+*@author Vitaly Borozna
+*/
+public class MainClass {
+    public static void main(String[] args) {
+
+        byte bt = 35;
+        short sh = 777;
+        int in = 77777;
+        long lg = 789107891078910564L;
+        float fl = 36.7f;
+        double dbl = 35.5;
+        boolean bool = true;
+        char ch = 'C';
+
+
+        System.out.println(expressionResult(3, 2, 6, 1));//выводит результат выражения из метода expressionResult
+        System.out.println(rangeOfNubbers(2, -4));//выводит истино ли выражение
+        positivOrNegativ(-7);//задается параметр числа
+        System.out.println(isTrue(-35));//выводит истино ли выражение
+        helloName("Виталик");//вызываем метод и задаем имя
+        leapYear(1100); // вызываем метод и задаем год
+    }
+    // метод expressionResult возвращает результат в метод main
+    static int expressionResult(int a, int b, int c, int d){
+        return a * (b + (c / d));
+    }
+    //проверяю положительна ли сумма переменных
+    static boolean rangeOfNubbers(int t,int f){
+        return (t +f >= 0 ? true : false);
+    }
+    //проверяется истино положительно ли число и выводит результат на экран
+    static void positivOrNegativ(int p){
+        if(p >= 0){
+            System.out.println("Число положительно");
+        } else {
+            System.out.println("Число отрицательно");
+        }
+    }
+    //если число отрицательно возвращается истина, иначе лож
+    static boolean isTrue(int x){
+        if(x >= 0){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    //задается параметр имени и складывается с "Привет ... !"
+    static void helloName(String name){
+        System.out.println("Привет," + name + "!");
+    }
+    //
+    static void leapYear(int x){
+        if(x % 4 == 0 && x % 100 != 0 || x % 400 == 0){ //проверяется сравнение остатка от деления с параметрами
+            System.out.println("Високосный год");
+        } else {
+            System.out.println("Не високосный год");
+        }
+    }
+}
