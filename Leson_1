@@ -26,9 +26,9 @@ public class MainClass {
     static int expressionResult(int a, int b, int c, int d){
         return a * (b + (c / d));
     }
-    //проверяю положительна ли сумма переменных
+    //проверяю лежит ли сумма в заданом диапазоне
     static boolean rangeOfNubbers(int t,int f){
-        return (t +f >= 0 ? true : false);
+        return (t + f >= 10 && t + f <= 20 ? true : false);
     }
     //проверяется истино положительно ли число и выводит результат на экран
     static void positivOrNegativ(int p){
