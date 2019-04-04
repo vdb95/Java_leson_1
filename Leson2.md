@@ -1,0 +1,68 @@
+import java.util.Arrays;
+
+public class Main_Leson2 {
+    public static void main(String[] args) {
+        invertArray();
+        fillArray();
+        changeArra();
+        fillDiagonal();
+        maxAndmin();
+
+    }
+    public static void invertArray() {
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i = 0; i <arr.length ; i++) {
+            if(arr[i] == 0){
+                arr[i] = 1 ;
+            } else{
+                arr[i] = 0;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+        public static void fillArray(){
+        int arr[] = new int[8];
+        arr[0] = 0;
+        for (int i = 0, j = 0; i < arr.length; i++, j +=3) {
+            arr[i] = j;
+        }
+            System.out.println(Arrays.toString(arr));
+    }
+    public static void changeArra() {
+        int[] arr = { 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 };
+        for (int i = 0; i <arr.length ; i++) {
+            if (arr[i] < 6){
+                arr[i] = arr[i] *2;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    public static void fillDiagonal() {
+        int[][] arr = new int[4][4];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0, m = arr[i].length; j < arr[i].length; j++, m--) {
+                if (i == j || i == (m - 1))
+                    arr[i][j] = 1;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.print("\r\n");
+        }
+
+    }
+    public static void maxAndmin(){
+        int arr[] = { 11, 4, 15, -4, 4, 25, 9, 57};
+        int min = arr[0], max = arr[0];
+        for (int i = 0; i <arr.length ; i++) {
+            if(arr[i] > max){
+                max = arr[i];
+            }
+            if(arr[i] < min){
+                min = arr[i];
+            }
+            
+        }
+        System.out.println("Максимальный элемент: " + max);
+        System.out.println("Минимальный элемент: " + min);
+    }
+}
