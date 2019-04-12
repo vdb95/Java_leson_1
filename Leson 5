@@ -1,27 +1,40 @@
 public class Main {
-    public void main(String[] args) {
-        Employee employee1 = new Employee("Ivan", "director", "nmdqjwklndk", 89554225,300000,45);
-        employee1.info();
+    public static void main(String[] args) {
+        Employee[] empArray = new Employee[5];
+        empArray[0] = new Employee("Frolov Sergey", "Director", "frolovsergey69@gmail.com", 33354, 300000, 50);
+        empArray[1] = new Employee("Borisov Igor", "Accountant", "borIg@gmail.com", 30634, 30000, 27);
+        empArray[2] = new Employee("Pavlov Dmitry", "Senior engineer", "DPav@gmail.com", 30870, 80000, 47);
+        empArray[3] = new Employee("Sevrugin Oleg", "Engineer", "sevr.o@gmail.com", 37025, 45000, 40);
+        empArray[4] = new Employee("Gryaznov Pavel", "Intern", "grpv@gmail.com", 36337, 25000, 20);
+
+        empArray[0].info();
+        empArray[1].info();
+        empArray[2].info();
+        empArray[3].info();
+        empArray[4].info();
+
+
     }
-    class Employee{
-        String name;
-        String post;
-        String email;
-        int phoneNomber;
-        int salary;
-        int age;
+}
 
-        public Employee(String name, String post, String email, int phoneNomber, int salary, int age) {
-            this.name = name;
-            this.post = post;
-            this.email = email;
-            this.phoneNomber = phoneNomber;
-            this.salary = salary;
-            this.age = age;
-        }
+class Employee{
+   String name;
+   String position;
+   String email;
+   int phone;
+   int salary;
+   int age;
 
-        public void info(){
-            System.out.println(name + post + email + phoneNomber + salary + age);
-        }
+    public Employee(String name, String position, String email, int phone, int salary, int age) {
+        this.name = name;
+        this.position = position;
+        this.email = email;
+        this.phone = phone;
+        this.salary = salary;
+        this.age = age;
+    }
+    public void info(){
+
+        if(this.age >= 40)System.out.println(name + " " + position + " " + email + " " + phone + " " + salary + " " + age + " ");
     }
 }
