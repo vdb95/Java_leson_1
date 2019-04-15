@@ -4,26 +4,32 @@ public class Main {
         empArray[0] = new Employee("Frolov Sergey", "Director", "frolovsergey69@gmail.com", 33354, 300000, 50);
         empArray[1] = new Employee("Borisov Igor", "Accountant", "borIg@gmail.com", 30634, 30000, 27);
         empArray[2] = new Employee("Pavlov Dmitry", "Senior engineer", "DPav@gmail.com", 30870, 80000, 47);
-        empArray[3] = new Employee("Sevrugin Oleg", "Engineer", "sevr.o@gmail.com", 37025, 45000, 40);
+        empArray[3] = new Employee("Sevrugin Oleg", "Engineer", "sevr.o@gmail.com", 37025, 45000, 41);
         empArray[4] = new Employee("Gryaznov Pavel", "Intern", "grpv@gmail.com", 36337, 25000, 20);
 
+        System.out.println("Все сотрудники:");
         empArray[0].info();
         empArray[1].info();
         empArray[2].info();
         empArray[3].info();
         empArray[4].info();
 
-
+        System.out.println("Сотрудники старше 40:");
+        empArray[0].ageMore40();
+        empArray[1].ageMore40();
+        empArray[2].ageMore40();
+        empArray[3].ageMore40();
+        empArray[4].ageMore40();
     }
 }
 
 class Employee{
-   String name;
-   String position;
-   String email;
-   int phone;
-   int salary;
-   int age;
+    String name;
+    String position;
+    String email;
+    int phone;
+    int salary;
+    int age;
 
     public Employee(String name, String position, String email, int phone, int salary, int age) {
         this.name = name;
@@ -34,7 +40,10 @@ class Employee{
         this.age = age;
     }
     public void info(){
+        System.out.println(name + " " + position + " " + email + " " + phone + " " + salary + " " + age + " ");
 
-        if(this.age >= 40)System.out.println(name + " " + position + " " + email + " " + phone + " " + salary + " " + age + " ");
+    }
+    public void ageMore40(){
+            if (age > 40) System.out.println(name + " " + position + " " + email + " " + phone + " " + salary + " " + age + " ");
     }
 }
