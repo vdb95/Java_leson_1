@@ -1,0 +1,111 @@
+public class Animal {
+    protected int run;
+    protected int swim;
+    protected double jump;
+
+    public Animal(int run, int swim, double jump) {
+        this.run = run;
+        this.swim = swim;
+        this.jump = jump;
+    }
+}
+
+class Cat extends Animal{
+    public Cat(int run, int swim, double jump) {
+        super(run, swim, jump);
+    }
+     int max_run = 200;
+     int max_swim = 0;
+     double max_jump = 2;
+    int getRun(){
+        return run;
+    }
+    int getSwim(){
+        return swim;
+    }
+    double getJump(){
+        return jump;
+    }
+    String infoCat(){
+        return
+                "Пробежала " + this.run + " " +
+                        "Кошки не умеют плавать!" + this.swim + " " +
+                        "Прыгнула" + this.jump  ;
+    }
+
+}
+class Dog extends Animal{
+    public Dog(int run, int swim, double jump) {
+        super(run, swim, jump);
+    }
+     int max_run = 500;
+     int max_swim = 10;
+     double max_jump = 0.5;
+    int getRun(){
+        return run;
+    }
+    int getSwim(){
+        return swim;
+    }
+    double getJump(){
+        return jump;
+    }
+    String infoDog(){
+        return
+                "Пробежала:" + this.run + " " +
+                        "Проплыла:" + this.swim + " " +
+                        "Прыгнула:" + this.jump ;
+
+    }
+
+}
+
+class MainAnimal{
+
+     static void resCat() {
+         Cat cat1 = new Cat(19000, 0, 1);
+         System.out.println("Кошка №1:");
+         if (cat1.getJump() <= cat1.max_jump && cat1.getRun() <= cat1.max_run ) {
+             System.out.println("Дистанция пройдена с результатом:");
+             System.out.println(cat1.infoCat());
+         } else {
+             System.out.println("Дистанция не пройдена!");
+         }
+         Cat cat2 = new Cat(130, 0, 2);
+         System.out.println("-------------------------------");
+         System.out.println("Кошка №2:");
+         if (cat2.getJump() <= cat2.max_jump && cat2.getRun() <= cat2.max_run) {
+             System.out.println("Дистанция пройдена с результатом:");
+             System.out.println(cat2.infoCat());
+         } else {
+             System.out.println("Дистанция не пройдена!");
+
+         }
+     }
+     static void resDog(){
+            Dog dog1 = new Dog(350,4, 10);
+
+         System.out.println("-------------------------------");
+         System.out.println("Собака №1:");
+             if (dog1.getJump()<= dog1.max_jump && dog1.getRun() <= dog1.max_run && dog1.getSwim()<= dog1.swim){
+                 System.out.println("Дистанция пройдена с результатом:");
+                 System.out.println(dog1.infoDog());
+             } else {
+                 System.out.println("Дистанция не пройдена!");
+             }
+             Dog dog2 = new Dog(450,6, 0.3);
+         System.out.println("-------------------------------");
+         System.out.println("Собака №2:");
+             if (dog2.getJump()<= dog2.max_jump && dog2.getRun() <= dog2.max_run && dog2.getSwim()<= dog2.swim){
+                 System.out.println("Дистанция пройдена с результатом:");
+                 System.out.println(dog2.infoDog());
+             } else {
+                 System.out.println("Дистанция не пройдена!");
+             }
+
+         }  public static void main(String[] args) {
+        resCat();
+        resDog();;
+    }
+
+}
