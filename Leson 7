@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Cat {
     private int appetite;
     private String name;
@@ -30,6 +32,7 @@ public class Cat {
 
 class Plate {
     private int food;
+    Scanner sc = new Scanner(System.in);
 
     public Plate(int food) {
         this.food = food;
@@ -51,21 +54,35 @@ class Plate {
         System.out.println(food);
 
     }
+    public void addFood(){
+        int e;
+        System.out.println("Недостаточно еды. Добавить?");
+        e = sc.nextInt();
+        this.food = food + e;
+    }
 }
 
 
 class MainClass {
     public static void main(String[] args) {
-        Cat cat = new Cat(10, "Vaska");
-        Cat cat1 = new Cat(33, "Barsik");
+
+       Cat[] catsArr = new Cat[4];
         Plate plate = new Plate(100);
-        System.out.println("Остаток в тарелке");
+        catsArr[0]= new Cat(20, "Barsik");
+        catsArr[1]= new Cat(15,"Vaska");
+        catsArr[2]= new Cat(145,"Cocos");
+        catsArr[3]= new Cat(18, "Bolt");
+
+        System.out.println("В тарелке:");
         plate.info();
-        cat.eat(plate);
-        System.out.println("Остаток в тарелке");
-        plate.info();
-        cat1.eat(plate);
-        System.out.println("Остаток в тарелке");
-        plate.info();
+
+        for (int i = 0; i <catsArr.length ; i++) {
+            if(catsArr[i].getAppetite() > plate.getFood()){
+                plate.addFood();
+            }
+            System.out.println("Остаток в тарелке:");
+            catsArr[i].eat(plate);
+            plate.info();
+        }
     }
-}
+   }
