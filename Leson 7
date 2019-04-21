@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Cat {
     private int appetite;
     private String name;
+    private boolean fullness;
 
     public Cat(int appetite, String name) {
         this.appetite = appetite;
@@ -24,9 +25,20 @@ public class Cat {
     public void setName(String name) {
         this.name = name;
     }
+    public void fullNessPlate(Plate f){
+        if(f.getFood() > appetite){
+            fullness = true;
+            System.out.println("Кот сыт");
+        }else {
+            System.out.println("Мало корма");
+        }
+    }
 
     public void eat(Plate p) {
         p.decreaseFood(appetite);
+    }
+    void info(){
+        System.out.println(name + " аппетит:" + appetite);
     }
 }
 
@@ -51,7 +63,7 @@ class Plate {
     }
 
     public void info() {
-        System.out.println(food);
+       if(food > 0) System.out.println("Остаток в тарелке:" + food);
 
     }
     public void addFood(){
@@ -62,27 +74,32 @@ class Plate {
     }
 }
 
-
 class MainClass {
     public static void main(String[] args) {
+        allCat();
+    }
 
-       Cat[] catsArr = new Cat[4];
+    static void allCat(){
+        Cat[] catsArr = new Cat[4];
         Plate plate = new Plate(100);
-        catsArr[0]= new Cat(20, "Barsik");
-        catsArr[1]= new Cat(15,"Vaska");
-        catsArr[2]= new Cat(145,"Cocos");
-        catsArr[3]= new Cat(18, "Bolt");
+        catsArr[0]= new Cat(20, "Барсик");
+        catsArr[1]= new Cat(15,"Васька");
+        catsArr[2]= new Cat(145,"Кокос");
+        catsArr[3]= new Cat(18, "Тори");
 
         System.out.println("В тарелке:");
         plate.info();
-
-        for (int i = 0; i <catsArr.length ; i++) {
-            if(catsArr[i].getAppetite() > plate.getFood()){
+        for (int i = 0; i <catsArr.length ; i++)
+        {catsArr[i].info();
+            if (catsArr[i].getAppetite() > plate.getFood() && plate.getFood() > 0){
                 plate.addFood();
+            }else if ( plate.getFood() <= 0){
+                System.out.println("Еды не хватило");
+                break;
             }
-            System.out.println("Остаток в тарелке:");
             catsArr[i].eat(plate);
+            catsArr[i].fullNessPlate(plate);
             plate.info();
         }
     }
-   }
+}
