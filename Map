@@ -71,5 +71,16 @@ public class Map extends JPanel{
             int x = i * cellWidth;
             g.drawLine(x,0,x, panelHeight);
         }
+        for (int i = 0; i <fieldSizeY ; i++) {
+            for (int j = 0; j <fieldSizeX ; j++) {
+                // Рисуем крестик
+                g.setColor(Color.BLUE);
+                g.drawLine((i * cellHeight), (j * cellWidth), (i + 1) * cellHeight, (j + 1) * cellWidth);
+                g.drawLine((i + 1) * cellHeight, (j * cellWidth), (i * cellHeight), (j + 1) * cellWidth);
+                // Рисуем нолик
+                g.setColor(Color.BLUE);
+                g.drawOval((i * cellHeight), (j * cellWidth), cellHeight, cellWidth);
+            }
+        }
     }
 }
