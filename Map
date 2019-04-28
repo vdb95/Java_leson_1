@@ -16,11 +16,12 @@ public class Map extends JPanel{
 
     int cellHeight;
     int cellWidth;
+    int EMPTY_DOT;
 
     boolean isInitialized = false;
 
     Map() {
-        setBackground(Color.ORANGE);
+        setBackground(Color.RED);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -35,6 +36,25 @@ public class Map extends JPanel{
         System.out.println("x: " + cellX + " y: " + cellY);
         repaint();
     }
+    // Проверка ячейки на занятость
+    boolean isCellBusy(int x, int y) {
+        if (x < 0 || y < 0 || x > fieldSizeX - 1 || y > fieldSizeY - 1) {
+            return false;
+        }
+        return field[x][y] != EMPTY_DOT;
+    }
+    // Проверка заполнения поля
+    public boolean isFieldFull() {
+
+        for (int i = 0; i < fieldSizeY; i++) {
+            for (int j = 0; j < fieldSizeX; j++) {
+                if (field [fieldSizeY][fieldSizeX] == EMPTY_DOT)
+                    return false;
+            }
+        }
+        return true;
+    }
+
 
     void startNewGame(int mode, int fieldSizeX, int fieldSizeY, int winLen) {
         this.fieldSizeX = fieldSizeX;
@@ -73,11 +93,11 @@ public class Map extends JPanel{
         }
         for (int i = 0; i <fieldSizeY ; i++) {
             for (int j = 0; j <fieldSizeX ; j++) {
-                // Рисуем крестик
+                // Отрисовка крестика
                 g.setColor(Color.BLUE);
                 g.drawLine((i * cellHeight), (j * cellWidth), (i + 1) * cellHeight, (j + 1) * cellWidth);
                 g.drawLine((i + 1) * cellHeight, (j * cellWidth), (i * cellHeight), (j + 1) * cellWidth);
-                // Рисуем нолик
+                // Отрисовка нолика
                 g.setColor(Color.BLUE);
                 g.drawOval((i * cellHeight), (j * cellWidth), cellHeight, cellWidth);
             }
